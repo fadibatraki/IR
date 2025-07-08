@@ -3,17 +3,22 @@ package com.example.course_service.service;
 import com.example.course_service.dto.CourseRequestDTO;
 import com.example.course_service.entity.Course;
 import com.example.course_service.repository.CourseRepository;
+import com.example.course_service.client.UserClient;
+import com.example.course_service.client.UserDTO;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class CourseService {
-    private final CourseRepository repository;
 
-    public CourseService(CourseRepository repository) {
+    private final CourseRepository repository;
+    private final UserClient userClient;
+
+    // ✅ Constructor واحد فقط يمرر كلا الحقلين
+    public CourseService(CourseRepository repository, UserClient userClient) {
         this.repository = repository;
+        this.userClient = userClient;
     }
 
     public List<Course> getAllCourses() {
@@ -30,6 +35,7 @@ public class CourseService {
     }
 
     public Course createCourse(CourseRequestDTO dto) {
+        // 🔍 يمكنك هنا لاحقًا التحقق من وجود المدرّب عبر userClient.getUserById(dto.getTrainerId());
         Course course = new Course();
         course.setTitle(dto.getTitle());
         course.setDescription(dto.getDescription());

@@ -1,7 +1,13 @@
 package com.example.assessment_service.service;
 
 import com.example.assessment_service.entity.Assessment;
+import com.example.assessment_service.entity.AssessmentResult;
+import com.example.assessment_service.entity.Question;
+import com.example.assessment_service.entity.StudentAnswer;
 import com.example.assessment_service.repository.AssessmentRepository;
+import com.example.assessment_service.repository.QuestionRepository;
+import com.example.assessment_service.repository.AssessmentResultRepository;
+import com.example.assessment_service.repository.StudentAnswerRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

@@ -7,7 +7,8 @@ import com.example.assessment_service.entity.StudentAnswer;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
+import java.util.Optional;
 
-public interface QuestionRepository extends JpaRepository<Question, Long> {
-    List<Question> findByAssessment(Assessment assessment);
+public interface AssessmentResultRepository extends JpaRepository<AssessmentResult, Long> {
+    Optional<AssessmentResult> findByStudentIdAndAssessmentId(Long studentId, Long assessmentId);
 }
